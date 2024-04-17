@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# pings an Ip address provided as an arg
+ping "$1" -c 5

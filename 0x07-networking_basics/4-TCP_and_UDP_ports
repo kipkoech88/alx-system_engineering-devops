@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # prints the list of listening ports and process ids
 
 sudo netstat -lp
