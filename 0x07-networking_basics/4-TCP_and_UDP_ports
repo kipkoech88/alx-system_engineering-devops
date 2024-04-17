@@ -1,0 +1,3 @@
+#! /usr/bin/bash
+# prints the list of listening ports and process ids
+sudo netstat -tunlp
