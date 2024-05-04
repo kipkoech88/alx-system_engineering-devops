@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Display contents of curr dir in list
+for name in *;
+do
+	echo "$name" | cut -d "-" -f 2
+done
