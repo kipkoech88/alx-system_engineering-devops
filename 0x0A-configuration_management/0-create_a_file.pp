@@ -1,3 +1,4 @@
+# creates a file in /tmp and add to group
 file { '/tmp/school':
   path    => '/tmp/school',
   mode    => '0744',
