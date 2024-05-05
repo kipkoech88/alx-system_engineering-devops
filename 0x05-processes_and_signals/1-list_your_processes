@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints the list of currently
+# running processess in user-oriented format
+#including those that might not have TTY
+
+
+ps -auxf
