@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Prints the list of currently
+# shellcheck disable=SC2009
+
+
+ps -aux | grep bash
