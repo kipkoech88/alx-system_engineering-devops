@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# kills process that traps SIGTERM
+
+pkill -f -SIGKILL 7-highlander
