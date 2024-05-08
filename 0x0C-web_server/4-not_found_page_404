@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # installs and configures nginx on ubuntu
 
-sudo apt-get update
-sudo apt-get install nginx -y
-sudo chmod -R a+rw /var/www
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo sed -i '24i\ rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'  /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sed -i "24i error_page 404 /custom_404.html" /etc/nginx/sites-available/default
-sudo service nginx start
+apt-get -y update
+apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+sed -i "46i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null
+sed -i "46i error_page 404 /custom_404.html;" /etc/nginx/sites-available/default
+service nginx restart
