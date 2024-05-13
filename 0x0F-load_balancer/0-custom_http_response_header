@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Install and configure Nginx with custom 404 and 
+# custome headers
+
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw allow "Nginx HTTP"
+sudo chmod -R a+rw /var/www
+
+sudo echo "Hello World" > /var/www/html/index.nginx-debian.html
+sudo touch /var/www/html/404.html
+sudo echo "Ceci n'est pas une page" |sudo tee /var/www/html/404.html
+
+sudo printf %s "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME;
+    root   /var/www/html;
+    index  index.html index.htm;
+
+    location /redirect_me {
+        return 301 http://twitter.com/wrld_of_h;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+      root /var/www/html;
+      internal;
+    }
+}" |sudo tee /etc/nginx/sites-available/default
+
+sudo service nginx restart
