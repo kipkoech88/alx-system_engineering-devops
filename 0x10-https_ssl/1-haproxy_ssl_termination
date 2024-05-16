@@ -38,7 +38,7 @@ frontend haproxy_balancer
 	bind *:80
 	mode http
 	bind *:443 ssl crt /etc/haproxy/certs/www.hoseakipngetich.tech.pem
-	redirect scheme https if {! ssl)fc }
+	redirect scheme https if {! ssl_fc }
 	default_backend webservers
 
 backend webservers
