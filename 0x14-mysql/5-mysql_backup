@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# backup sql data and archive them in tar.gz
+# Run as root
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%y")
+backup_name="$day - $month - $year.tar.gz"
+mysqldump --all-databases -uroot --password="$1" > backup.sql
+tar -czfv "$backup_name" backup.sql
