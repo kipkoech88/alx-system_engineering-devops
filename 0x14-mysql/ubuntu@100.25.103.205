@@ -3,7 +3,7 @@
 # Run as root
 day=$(date +"%d")
 month=$(date +"%m")
-year=$(date +"%Y")
-backup_name="$day-$month-$year.tar.gz"
+year=$(date +"%y")
+backup_name="$day - $month - $year.tar.gz"
 mysqldump --all-databases -uroot --password="$1" > backup.sql
-tar -czvf "$backup_name" backup.sql
+tar -czfv "$backup_name" backup.sql
